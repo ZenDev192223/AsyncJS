@@ -39,14 +39,26 @@ const promiseFour = new Promise(function(resolve,reject){
     erro?resolve({username:"suhan"}):reject("Error")
 })
 
-promiseFour.then((user)=>{
-    console.log(user)
-    return user.username
-})
-.then((username)=>{
-    console.log(username)
-})
-.catch((err)=>{
-    console.log(err)
-})
-.finally(()=>console.log("finally"))
+// promiseFour.then((user)=>{
+//     console.log(user)
+//     return user.username
+// })
+// .then((username)=>{
+//     console.log(username)
+// })
+// .catch((err)=>{
+//     console.log(err)
+// })
+// .finally(()=>console.log("finally"))
+
+async function promHnadler(){
+    try{
+        const response = await promiseFour;
+        console.log(response)
+    }
+    catch(e){
+        console.log(e)
+    }
+}
+
+promHnadler()
